@@ -1,120 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap 5 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="assets/style.css">
-    <title>Gallery</title>
+  <title>Gallery</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="display-6 my-2 fw-bold text-capitalize"> image gallery</h1>
-        <div class="row gallery">
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="image my-5"><img src="assets/images/1.png" alt=""></div>      
-            </div>
-        </div>
+
+  <h1 class="display-4 m-3 text-capitalize "> gallery of today</h1>
+  <div class="winner">
+ <div class="content">
+    <div class="images">
+      <img src="assets/images/2.jpg" class="image-slider">
+      <img src="assets/images/1.png" class="image-slider">
+      <img src="assets/images/2.jpg" class="image-slider">
     </div>
-    <div class="preview-box">
-        <div class="details">
-          <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-          <span class="icon fas fa-times"></span>
-        </div>
-        <div class="image-box">
-          <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-          <div class="slide next"><i class="fas fa-angle-right"></i></div>
-          <img src="" alt="">
-        </div>
-      </div>
-      <div class="shadow"></div>
+  </div>
+  </div>
+ 
+  <script>
+    var indexValue = 0;
+    function slideShow() {
+      setTimeout(slideShow, 2500);
+      var x;
+      const img = document.querySelectorAll(".image-slider");
+      for (x = 0; x < img.length; x++) {
+        img[x].style.display = "none";
+      }
+      indexValue++;
+      if (indexValue > img.length) {
+        indexValue = 1
+      }
+      img[indexValue - 1].style.display = "block";
+    }
+    slideShow();
+  </script>
 
-      <script>
-          //getting all required elements
-const gallery  = document.querySelectorAll(".image"),
-previewBox = document.querySelector(".preview-box"),
-previewImg = previewBox.querySelector("img"),
-closeIcon = previewBox.querySelector(".icon"),
-currentImg = previewBox.querySelector(".current-img"),
-totalImg = previewBox.querySelector(".total-img"),
-shadow = document.querySelector(".shadow");
-
-window.onload = ()=>{
-    for (let i = 0; i < gallery.length; i++) {
-        totalImg.textContent = gallery.length; 
-        let newIndex = i; 
-        let clickedImgIndex; 
-        gallery[i].onclick = () =>{
-            clickedImgIndex = i; 
-            function preview(){
-                currentImg.textContent = newIndex + 1; 
-                let imageURL = gallery[newIndex].querySelector("img").src; 
-                previewImg.src = imageURL; 
-            }
-            preview();   
-            const prevBtn = document.querySelector(".prev");
-            const nextBtn = document.querySelector(".next");
-            if(newIndex == 0){ 
-                prevBtn.style.display = "none"; 
-            }
-            if(newIndex >= gallery.length - 1){ 
-                 nextBtn.style.display = "none"; 
-            }
-            prevBtn.onclick = ()=>{ 
-                newIndex--; 
-                if(newIndex == 0){
-                    preview(); 
-                    prevBtn.style.display = "none"; 
-                }else{
-                    preview();
-                    nextBtn.style.display = "block";
-                } 
-            }
-            nextBtn.onclick = ()=>{ 
-                newIndex++; //increment index
-                if(newIndex >= gallery.length - 1){
-                    preview(); 
-                    nextBtn.style.display = "none";
-                }else{
-                    preview(); 
-                    prevBtn.style.display = "block";
-                }
-            }
-            document.querySelector("body").style.overflow = "hidden";
-            previewBox.classList.add("show"); 
-            shadow.style.display = "block"; 
-            closeIcon.onclick = ()=>{
-                newIndex = clickedImgIndex; 
-                prevBtn.style.display = "block"; 
-                nextBtn.style.display = "block";
-                previewBox.classList.remove("show");
-                shadow.style.display = "none";
-                document.querySelector("body").style.overflow = "scroll";
-            }
-        }
-        
-    } 
-}
-      </script>
-    
 </body>
+
 </html>

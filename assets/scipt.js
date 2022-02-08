@@ -36,39 +36,8 @@ owl.owlCarousel({
         }
     }
 });
-//var elem = document.getElementsByClassName("container-fluid");
-var elem = document.documentElement;
-// var full_screen_element = document.fullscreenElement;
-	
-// If no element is in full-screen
-// if(full_screen_element !== null)
-// 	console.log('FullScreen mode is activated');
-// else{
-//     console.log('FullScreen mode is not activated');
-//    fullscreen();
 
-// }
-	
-//elem.addEventListener("dblclick",)
 
-// function fullscreen(){
-//     if (elem.requestFullScreen) {
-//         elem.requestFullScreen();
-//        } else if (elem.webkitRequestFullScreen) {
-//         elem.webkitRequestFullScreen();
-//        } else if (elem.mozRequestFullScreen) {
-//         elem.mozRequestFullScreen();
-//        }
-// }
-// function cancelfull(){
-//     if (elem.exitFullscreen) {
-//         elem.exitFullscreen();
-//        } else if (document.webkitRequestFullScreen) {
-//         document.webkitCancelFullscreen()
-//        } else if (elem.mozRequestFullScreen) {
-//         document.mozCancelFullScreen();
-//        }
-// }
 
 function toggleFullscreen() {
     if (!document.webkitFullscreenElement) {
@@ -88,39 +57,3 @@ function toggleFullscreen() {
    
    document.addEventListener("dblclick", toggleFullscreen);
 
-// var elem = document.getElementsByClassName("container-fluid");
-
-// $(".container-fluid").dblclick(function() {
-//     if (elem.requestFullscreen) {
-//       elem.requestFullscreen();
-//     } else if (elem.mozRequestFullScreen) { 
-//       elem.mozRequestFullScreen();
-//     } else if (elem.webkitRequestFullscreen) { 
-//       elem.webkitRequestFullscreen();
-//     } else if (elem.msRequestFullscreen) { 
-//       elem.msRequestFullscreen();
-//     }
-//   });
-// var elem = document.documentElement;
-
-/* View in fullscreen */
-// function openFullscreen() {
-//   if (elem.requestFullscreen) {
-//     elem.requestFullscreen();
-//   } else if (elem.webkitRequestFullscreen) { 
-//     elem.webkitRequestFullscreen();
-//   } else if (elem.msRequestFullscreen) { 
-//     elem.msRequestFullscreen();
-//   }
-// }
-
-/* Close fullscreen */
-// function closeFullscreen() {
-//   if (document.exitFullscreen) {
-//     document.exitFullscreen();
-//   } else if (document.webkitExitFullscreen) { 
-//     document.webkitExitFullscreen();
-//   } else if (document.msExitFullscreen) { 
-//     document.msExitFullscreen();
-//   }
-// }
