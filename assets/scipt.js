@@ -37,7 +37,7 @@ owl.owlCarousel({
     }
 });
 
-
+var elem = document.documentElement;
 
 function toggleFullscreen() {
     if (!document.webkitFullscreenElement) {
@@ -56,4 +56,23 @@ function toggleFullscreen() {
    }
    
    document.addEventListener("dblclick", toggleFullscreen);
+
+//var elem=document.getElementsByTagName("body");
+// function toggleFullscreen() {
+//     if (!document.webkitFullscreenElement) {
+//      if (elem.requestFullScreen) {
+//       elem.requestFullScreen();
+//      } else if (elem.webkitRequestFullScreen) {
+//       elem.webkitRequestFullScreen();
+//      } else if (elem.mozRequestFullScreen) {
+//       elem.mozRequestFullScreen();
+//      }
+//     } 
+//     else  {
+//         return document.exitFullscreen()|| document.webkitCancelFullscreen() || document.mozCancelFullScreen() ;
+       
+//     }
+//    }
+   
+//    document.addEventListener("dblclick", toggleFullscreen);
 
